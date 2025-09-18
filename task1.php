@@ -1,16 +1,17 @@
 <?php
-function getTextStats($text) {
-    
+function getTextStats($text)
+{
+
     $character_count = strlen($text);
 
-    
+
     $words = str_word_count($text, 1, 'А-Яа-яЁё');
     $word_count = count($words);
 
-    
+
     $sentence_count = preg_match_all('/[.!?]/u', $text);
 
-    
+
     $total_length = 0;
     foreach ($words as $w) {
         $total_length += strlen($w);
@@ -31,5 +32,6 @@ function getTextStats($text) {
 }
 $text = "The quick brown fox jumps over the lazy dog. The dog was not amused.";
 print_r(getTextStats($text));
+
 
 
